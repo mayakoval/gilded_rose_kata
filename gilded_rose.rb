@@ -31,6 +31,7 @@ class UpdateItem
 
     # Add appropriate value with #add_quality
     add_quality
+    add_quality if item.sell_in < 0
   end
 end
 
@@ -54,7 +55,7 @@ def update_quality(items)
       elsif item.sell_in < 6
         UpdateItem.new(item, 3).update
       # if the sell date is <= 0, drop the quality to 0
-      elsif item.sell_in <= 0
+      elsif item.sell_in < 0
         UpdateItem.new(item, -item.quality).update
       # else (>11), quality increases by 1
       else
@@ -84,4 +85,3 @@ Item = Struct.new(:name, :sell_in, :quality)
 #   Item.new("Backstage passes to a TAFKAL80ETC concert", 15, 20),
 #   Item.new("Conjured Mana Cake", 3, 6),
 # ]
-
