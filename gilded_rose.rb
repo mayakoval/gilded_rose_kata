@@ -38,11 +38,14 @@ def update_quality(items)
   # Iterate through items and check the name
   # of each item instance
   items.each do |item|
+    case item.name
     # SULFURAS will not change
-
+    when SULFURAS
     # AGED_BRIE will increase its quality_value by 1
     # with passing time
+    when AGED_BRIE
 
+    when PASSES
     # PASSES will have multiple options for quality_value
       # if the sell date is < 11, increase by 2
 
@@ -53,41 +56,13 @@ def update_quality(items)
       # else (>11), quality increases by 1
 
     # CONJURED will decrease quality twice as much
-
+    when CONJURED
+    
     # any other case decreases quality by 1 each day
+    else
+
+    end
   end
-  
-  #   # QUALITY PART
-  #   if item.name != AGED_BRIE && item.name != PASSES
-
-  #   else
-  #       item.quality += 1
-  #       if item.name == PASSES
-  #         if item.sell_in < 11
-  #             item.quality += 1
-  #           end
-  #         end
-  #         if item.sell_in < 6
-  #             item.quality += 1
-  #           end
-  #         end
-  #       end
-
-  #   # COUNTER PART
-  #   if item.sell_in < 0
-  #     if item.name != AGED_BRIE
-  #       if item.name != PASSES
-  #       else
-  #         item.quality = item.quality - item.quality
-  #       end
-  #     else
-  #         item.quality += 1
-  #       end
-  #     end
-  # end
-
-  # TO BE COMBINED IN ONE CASE STATEMENT
-  # using the UpdateItem class
 end
 
 # DO NOT CHANGE THINGS BELOW -----------------------------------------
