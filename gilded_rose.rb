@@ -4,6 +4,16 @@ PASSES = 'Backstage passes to a TAFKAL80ETC concert'
 SULFURAS = 'Sulfuras, Hand of Ragnaros'
 CONJURED = 'Conjured Mana Cake'
 
+class UpdateItem
+  attr_reader :item, :quality_value
+
+  def initialize(item, quality_value)
+    @item = item
+    @quality_value = quality_value
+  end
+  
+end
+
 def update_quality(items)
   items.each do |item|
     if item.name != AGED_BRIE && item.name != PASSES
