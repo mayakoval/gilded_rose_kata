@@ -21,6 +21,8 @@ class UpdateItem
 
   def update
     # Counter for days passing
+    # applicable for all items but sulfuras
+    item.sell_in -= 1
 
     # Add appropriate value with #add_quality
 
@@ -56,16 +58,10 @@ def update_quality(items)
     end
 
     # COUNTER PART
-    if item.name != SULFURAS
-      item.sell_in -= 1
-    end
     if item.sell_in < 0
       if item.name != AGED_BRIE
         if item.name != PASSES
           if item.quality > 0
-            if item.name != SULFURAS
-              item.quality -= 1
-            end
           end
         else
           item.quality = item.quality - item.quality
