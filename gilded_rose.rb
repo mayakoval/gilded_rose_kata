@@ -30,44 +30,41 @@ class UpdateItem
     item.sell_in -= 1
 
     # Add appropriate value with #add_quality
-
+    add_quality
   end
 end
 
 def update_quality(items)
   items.each do |item|
-
-    # QUALITY PART
-    if item.name != AGED_BRIE && item.name != PASSES
-
-    else
-        item.quality += 1
-        if item.name == PASSES
-          if item.sell_in < 11
-              item.quality += 1
-            end
-          end
-          if item.sell_in < 6
-              item.quality += 1
-            end
-          end
-        end
-      end
-    end
-
-    # COUNTER PART
-    if item.sell_in < 0
-      if item.name != AGED_BRIE
-        if item.name != PASSES
-        else
-          item.quality = item.quality - item.quality
-        end
-      else
-          item.quality += 1
-        end
-      end
-    end
   end
+  #   # QUALITY PART
+  #   if item.name != AGED_BRIE && item.name != PASSES
+
+  #   else
+  #       item.quality += 1
+  #       if item.name == PASSES
+  #         if item.sell_in < 11
+  #             item.quality += 1
+  #           end
+  #         end
+  #         if item.sell_in < 6
+  #             item.quality += 1
+  #           end
+  #         end
+  #       end
+
+  #   # COUNTER PART
+  #   if item.sell_in < 0
+  #     if item.name != AGED_BRIE
+  #       if item.name != PASSES
+  #       else
+  #         item.quality = item.quality - item.quality
+  #       end
+  #     else
+  #         item.quality += 1
+  #       end
+  #     end
+  # end
 
   # TO BE COMBINED IN ONE CASE STATEMENT
   # using the UpdateItem class
