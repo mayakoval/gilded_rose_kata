@@ -44,17 +44,22 @@ def update_quality(items)
     # AGED_BRIE will increase its quality_value by 1
     # with passing time
     when AGED_BRIE
-
-    when PASSES
+      UpdateItem.new(item, 1).update
     # PASSES will have multiple options for quality_value
+    when PASSES
       # if the sell date is < 11, increase by 2
-
+      if item.sell_in < 11
+        UpdateItem.new(item, 2).update
       # if the sell date is < 6, increase by 3
-
+      elsif item.sell_in < 6
+        UpdateItem.new(item, 3).update
       # if the sell date is <= 0, drop the quality to 0
-
+      elsif item.sell_in <= 0
+        UpdateItem.new(item, -item.quality).update
       # else (>11), quality increases by 1
-
+      else
+        UpdateItem.new(item, 1).update
+      end
     # CONJURED will decrease quality twice as much
     when CONJURED
     
