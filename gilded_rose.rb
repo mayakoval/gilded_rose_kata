@@ -60,12 +60,12 @@ def update_quality(items)
       else
         UpdateItem.new(item, 1).update
       end
-    # CONJURED will decrease quality twice as much
+    # CONJURED will decrease quality twice as quickly as normal items
     when CONJURED
-    
+      UpdateItem.new(item, -2).update
     # any other case decreases quality by 1 each day
     else
-
+      UpdateItem.new(item, -1).update
     end
   end
 end
