@@ -5,17 +5,32 @@ SULFURAS = 'Sulfuras, Hand of Ragnaros'
 CONJURED = 'Conjured Mana Cake'
 
 class UpdateItem
+  # sell_in attribute is not going to be read
+  # outside the class so no need for a reader
   attr_reader :item, :quality_value
 
   def initialize(item, quality_value)
     @item = item
     @quality_value = quality_value
   end
-  
+
+  def add_quality
+    # Check if quality meets the requirements
+      # Add the appropriate value
+  end
+
+  def update
+    # Counter for days passing
+
+    # Add appropriate value with #add_quality
+
+  end
 end
 
 def update_quality(items)
   items.each do |item|
+
+    # QUALITY PART
     if item.name != AGED_BRIE && item.name != PASSES
       if item.quality > 0
         if item.name != SULFURAS
@@ -39,6 +54,8 @@ def update_quality(items)
         end
       end
     end
+
+    # COUNTER PART
     if item.name != SULFURAS
       item.sell_in -= 1
     end
@@ -60,6 +77,9 @@ def update_quality(items)
       end
     end
   end
+
+  # TO BE COMBINED IN ONE CASE STATEMENT
+  # using the UpdateItem class
 end
 
 # DO NOT CHANGE THINGS BELOW -----------------------------------------
