@@ -16,7 +16,12 @@ class UpdateItem
 
   def add_quality
     # Check if quality meets the requirements
+    # it should be more than 0 but less than 50
+    if item.quality > 0 && item.quality < 50
       # Add the appropriate value
+      # stated in the case-when statement
+      item.quality += quality_value
+    end
   end
 
   def update
@@ -34,22 +39,15 @@ def update_quality(items)
 
     # QUALITY PART
     if item.name != AGED_BRIE && item.name != PASSES
-      if item.quality > 0
-        if item.name != SULFURAS
-          item.quality -= 1
-        end
-      end
+
     else
-      if item.quality < 50
         item.quality += 1
         if item.name == PASSES
           if item.sell_in < 11
-            if item.quality < 50
               item.quality += 1
             end
           end
           if item.sell_in < 6
-            if item.quality < 50
               item.quality += 1
             end
           end
@@ -61,13 +59,10 @@ def update_quality(items)
     if item.sell_in < 0
       if item.name != AGED_BRIE
         if item.name != PASSES
-          if item.quality > 0
-          end
         else
           item.quality = item.quality - item.quality
         end
       else
-        if item.quality < 50
           item.quality += 1
         end
       end
